@@ -35,13 +35,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-.idea/.idea.DungeonGen/.idea/contentModel.xml
-.idea/.idea.DungeonGen/.idea/encodings.xml
-.idea/.idea.DungeonGen/.idea/indexLayout.xml
-.idea/.idea.DungeonGen/.idea/misc.xml
-.idea/.idea.DungeonGen/.idea/modules.xml
-.idea/.idea.DungeonGen/.idea/workspace.xml
-.idea/.idea.DungeonGen/riderModule.iml
 Assets/Plugins/Editor.meta
 Assets/Plugins/Editor/JetBrains.meta
 Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll
@@ -108,6 +101,3 @@ Assets/Plugins/GitHub/Editor/x86/pthreadVC2.dll
 Assets/Plugins/GitHub/Editor/x86/pthreadVC2.dll.meta
 Assets/Plugins/GitHub/Editor/x86/sfw_x86.dll
 Assets/Plugins/GitHub/Editor/x86/sfw_x86.dll.meta
-.idea/.idea.DungeonGen/.idea/vcs.xml
-.idea/.idea.DungeonGen/.idea/vcs.xml
-.idea/.idea.DungeonGen/.idea/workspace.xml___jb_old___
