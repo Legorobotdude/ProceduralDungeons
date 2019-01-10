@@ -32,7 +32,7 @@ public class DunGenPlacerPrefab : DunGenPlacer {
 	[Header("# prefabs (When no walls are present")]
 	[SerializeField] private GameObject[] Prefabs13;
 
-	[SerializeField] private GameObject[] DoorPrefabs;
+	//[SerializeField] private GameObject[] DoorPrefabs;
 
 	[SerializeField] private Transform dungeonParent;
 	[SerializeField] private float scale = 5f;

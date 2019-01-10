@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class DunGenPlacerTiles : DunGenPlacer
 {
-
+	[Header("Prefabs for the tiles that make up the walls, floors, and ceilings")]
 	public GameObject[] walls;
 	public GameObject[] floors;
 	public GameObject[] ceilings;
 	public GameObject[] doors;
-
+	
+	[Header("Prefabs for objects that have a chance of being attached to their respective tile")]
 	public GameObject[] wallObjects;
 	public GameObject[] floorObjects;
 	public GameObject[] ceilingObjects;
-
-	public float wallChance = 0.1f;
-	public int floorObjectsNumber = 100;
-	public float ceilingChance = 0.1f;
-
+	
+	[Header("The chance that a tile will have an object attached")]
+	public float wallObjectsChance = 0f;
+	public float floorObjectsChance = 0f;
+	public float ceilingObjectsChance = 0f;
+	
+	[Header("The object all tiles are parented to")]
 	public Transform wallParent;
 	public Transform floorParent;
 	public Transform ceilingParent;
@@ -30,7 +33,7 @@ public class DunGenPlacerTiles : DunGenPlacer
 		PlaceTiles(dunGen.map, dunGen.mapRows, dunGen.mapColumns, dunGen.traversedMap);
 		PlaceWallObjects();
 		PlaceCeilingObjects();
-		//small possibility for trap in room
+		//todo add small possibility for trap in room
 	}
 
 	private void PlaceTiles(char[,] map, int mapRows, int mapColumns, bool[,] placementMap)
@@ -115,7 +118,7 @@ public class DunGenPlacerTiles : DunGenPlacer
 	{
 		foreach (Transform wall in wallParent)
 		{
-			if (Random.Range(0f, 1f) <= wallChance)
+			if (Random.Range(0f, 1f) <= wallObjectsChance)
 			{
 				Instantiate(wallObjects[Random.Range(0, wallObjects.Length)], wall);
 			}
@@ -126,9 +129,20 @@ public class DunGenPlacerTiles : DunGenPlacer
 	{
 		foreach (Transform tile in ceilingParent)
 		{
-			if (Random.Range(0f, 1f) <= ceilingChance)
+			if (Random.Range(0f, 1f) <= ceilingObjectsChance)
 			{
 				Instantiate(ceilingObjects[Random.Range(0, ceilingObjects.Length)], tile);
+			}
+		}
+	}
+	
+	private void PlaceFloorObjects()
+	{
+		foreach (Transform tile in floorParent)
+		{
+			if (Random.Range(0f, 1f) <= floorObjectsChance)
+			{
+				Instantiate(floorObjects[Random.Range(0, floorObjects.Length)], tile);
 			}
 		}
 	}

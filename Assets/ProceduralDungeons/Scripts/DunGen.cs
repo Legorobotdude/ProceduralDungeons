@@ -9,6 +9,8 @@ public class DunGen : MonoBehaviour {
 	public int mapColumns = 10;
 	public int minCells = 15;
 	public int numRooms = 1;
+
+	public bool printMapAfterGen = true;
 	
 	public char[,] map;
 	public bool[,] traversedMap;
@@ -36,7 +38,12 @@ public class DunGen : MonoBehaviour {
 			InitializeMap ();
 			traversedMap = DFSTraverse(startX, startY);
 		}
-		DisplayMap ();
+
+		if (printMapAfterGen)
+		{
+			DisplayMap ();
+		}
+		
 	}
 	
 	
@@ -49,8 +56,7 @@ public class DunGen : MonoBehaviour {
 			output += "\n";
 		}
 		Debug.Log (output);
-		//DFSTraverse(1, 1);
-		Debug.Log(cellsTraversed);
+		Debug.Log("Accessible cells: " + cellsTraversed);
 	}
 
 	private void InitializeMap() {
