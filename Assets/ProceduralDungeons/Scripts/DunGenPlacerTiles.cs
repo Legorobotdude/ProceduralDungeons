@@ -30,26 +30,35 @@ public class DunGenPlacerTiles : DunGenPlacer
 
 	protected override void PlaceDungeon()
 	{
+		SetupParents();
+		PlaceTiles(dunGen.map, dunGen.mapRows, dunGen.mapColumns, dunGen.traversedMap);
+		PlaceWallObjects();
+		PlaceCeilingObjects();
+		PlaceFloorObjects();
+		//todo add small possibility for trap in room
+	}
+
+	private void SetupParents()
+	{
 		if (wallParent == null)
 		{
 			wallParent = new GameObject("Wall Parent").transform;
 		}
+
 		if (floorParent == null)
 		{
 			floorParent = new GameObject("Floor Parent").transform;
 		}
+
 		if (ceilingParent == null)
 		{
 			ceilingParent = new GameObject("Ceiling Parent").transform;
 		}
+
 		if (doorParent == null)
 		{
 			doorParent = new GameObject("Door Parent").transform;
 		}
-		PlaceTiles(dunGen.map, dunGen.mapRows, dunGen.mapColumns, dunGen.traversedMap);
-		PlaceWallObjects();
-		PlaceCeilingObjects();
-		//todo add small possibility for trap in room
 	}
 
 	private void PlaceTiles(char[,] map, int mapRows, int mapColumns, bool[,] placementMap)
@@ -64,6 +73,7 @@ public class DunGenPlacerTiles : DunGenPlacer
 					Instantiate(floors[Random.Range(0, floors.Length)], new Vector3(5 * r, 0f, 5 * c), Quaternion.identity, floorParent);
 					Instantiate(ceilings[Random.Range(0, ceilings.Length)], new Vector3(5 * r, 5, 5 * c + 5),  Quaternion.AngleAxis(180, Vector3.right), ceilingParent);
 					
+					//place walls
 					switch (map [r, c])
 					{
 						case '─':
@@ -162,9 +172,5 @@ public class DunGenPlacerTiles : DunGenPlacer
 			}
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

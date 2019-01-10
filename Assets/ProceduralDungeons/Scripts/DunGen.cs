@@ -48,7 +48,7 @@ public class DunGen : MonoBehaviour {
 	}
 	
 	
-	public void DisplayMap() {
+	public string DisplayMap() {
 		string output = "";
 		for (int r = 0; r < mapRows; r++) {
 			for (int c = 0; c < mapColumns; c++) {
@@ -58,9 +58,11 @@ public class DunGen : MonoBehaviour {
 		}
 		Debug.Log (output);
 		Debug.Log("Accessible cells: " + cellsTraversed);
+		return output;
 	}
 
 	private void InitializeMap() {
+		
 		map = new char[mapRows, mapColumns];
 
 		// Put 'X's in top and bottom rows.
@@ -85,7 +87,6 @@ public class DunGen : MonoBehaviour {
 		Random.InitState(System.DateTime.Now.Millisecond); 
 		
 		//generate random rooms
-
 		for (int x = 0; x < numRooms; x++)
 		{
 			int width = Random.Range(3, mapColumns / 3);
@@ -106,7 +107,8 @@ public class DunGen : MonoBehaviour {
 			map[(initialY + length/2), initialX] = '<';
 			map[(initialY + length/2), initialX + width-1] = '>';
 		}
-
+		
+		//Fill in the rest of the map with random characters
 		for (int r = 1; r < mapRows - 1; r++) {
 			for (int c = 1; c < mapColumns - 1; c++) {
 				if (map[r, c] == 'O')
@@ -121,6 +123,7 @@ public class DunGen : MonoBehaviour {
 
 
 	private string GetValidBoxCharacters(int row, int column) {
+		
 		string validCharacters = "";
 
 		for (int i = 0; i < boxCharacters.Length; i++) {
@@ -157,11 +160,7 @@ public class DunGen : MonoBehaviour {
 			return;
 		}
 
-		//if (map[row, col] != 'O')
-		//{
-			visitedCells[row, col] = true;
-		//}
-		
+		visitedCells[row, col] = true;	
 		cellsTraversed++;
 
 		switch (map [row, col])
