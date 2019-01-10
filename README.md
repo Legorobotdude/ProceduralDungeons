@@ -1,5 +1,5 @@
 # ProceduralDungeons
-Scripts to procedurally generate dungeons in Unity3D
+An asset that procedurally generates dungeons in Unity3D
 
 ![alt text](Screenshots/maze1.JPG "Screenshot")
 
