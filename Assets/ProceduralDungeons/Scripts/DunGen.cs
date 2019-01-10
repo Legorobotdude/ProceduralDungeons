@@ -26,11 +26,6 @@ public class DunGen : MonoBehaviour {
 		InitializeBoxCharacters ();
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public void GenerateMap(int startX = 1, int startY = 1)
 	{
