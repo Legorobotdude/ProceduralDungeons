@@ -1,14 +1,14 @@
 # ProceduralDungeons
 Scripts to procedurally generate dungeons in Unity3D
 
-![alt text](Screenshots/maze1.jpg "Screenshot")
+![alt text](Screenshots/maze1.JPG "Screenshot")
 
 # Quick Start
 
 Two sample scenes are included, one that builds the maze out of tiles and one that builds the maze out of room prefabs. DunGen.cs generates the layout of the dungeon and maze, and DunGenPlacer.cs places the actual tiles around the map. Simply press the play button in either example scene and a dungeon will be generated.
 
-![alt text](Screenshots/maze2.jpg "Screenshot")
-![alt text](Screenshots/maze.jpg "Screenshot")
+![alt text](Screenshots/maze2.JPG "Screenshot")
+![alt text](Screenshots/maze.JPG "Screenshot")
 
 # Features
 
@@ -16,7 +16,7 @@ Besides procedurally and building generating mazes/dungeons out of either tiles 
 
 # Options
 
-![alt text](Screenshots/options.jpg "Screenshot")
+![alt text](Screenshots/options.JPG "Screenshot")
 
 All scripts have many options exposed to the inspector so lots of customization is possible.
 
@@ -26,7 +26,7 @@ In order to build a dungeon from code, simply call the BuildDungeon() function f
 
 public void BuildDungeon(int mapRows, int mapColumns, int minCells = 10, int numRooms = 1, int startX = 1, int startY = 1, bool printMap = false)
 
-![alt text](Screenshots/maze3.jpg "Screenshot")
+![alt text](Screenshots/maze3.JPG "Screenshot")
 
 # Acknowledments
 
