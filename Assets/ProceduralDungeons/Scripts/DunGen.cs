@@ -9,7 +9,8 @@ public class DunGen : MonoBehaviour {
 	public int mapColumns = 10;
 	public int minCells = 15;
 	public int numRooms = 1;
-
+	
+	[Header("Prints generated map to console if selected")]
 	public bool printMapAfterGen = true;
 	
 	public char[,] map;

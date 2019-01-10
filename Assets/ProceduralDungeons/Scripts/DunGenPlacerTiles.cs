@@ -30,6 +30,22 @@ public class DunGenPlacerTiles : DunGenPlacer
 
 	protected override void PlaceDungeon()
 	{
+		if (wallParent == null)
+		{
+			wallParent = new GameObject("Wall Parent").transform;
+		}
+		if (floorParent == null)
+		{
+			floorParent = new GameObject("Floor Parent").transform;
+		}
+		if (ceilingParent == null)
+		{
+			ceilingParent = new GameObject("Ceiling Parent").transform;
+		}
+		if (doorParent == null)
+		{
+			doorParent = new GameObject("Door Parent").transform;
+		}
 		PlaceTiles(dunGen.map, dunGen.mapRows, dunGen.mapColumns, dunGen.traversedMap);
 		PlaceWallObjects();
 		PlaceCeilingObjects();

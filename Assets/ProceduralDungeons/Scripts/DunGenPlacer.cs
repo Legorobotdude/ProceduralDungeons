@@ -32,12 +32,13 @@ public abstract class DunGenPlacer : MonoBehaviour {
 		PlaceDungeon();
 	}
 
-	public void BuildDungeon(int mapRows, int mapColumns, int minCells = 10, int numRooms = 1, int startX = 1, int startY = 1)
+	public void BuildDungeon(int mapRows, int mapColumns, int minCells = 10, int numRooms = 1, int startX = 1, int startY = 1, bool printMap = false)
 	{
 		dunGen.mapRows = mapRows;
 		dunGen.mapColumns = mapColumns;
 		dunGen.minCells = minCells;
 		dunGen.numRooms = numRooms;
+		dunGen.printMapAfterGen = printMap;
 		dunGen.GenerateMap(startX, startY);
 		PlaceDungeon();
 	}
